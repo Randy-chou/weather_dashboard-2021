@@ -37,7 +37,7 @@ function displayHistory(){
 
 //Helper function for weather data retrieval 
 function getData(city){
-    var queryURLGeo = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=" + APIKey;
+    var queryURLGeo = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=" + APIKey;
 
     //Translate inputed city to lat and long coordinates
     fetch(queryURLGeo).then(function(response){
