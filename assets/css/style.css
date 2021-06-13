@@ -1,0 +1,47 @@
+.gradient-h-custom {
+    /* fallback for old browsers */
+    background: #667eea;
+  
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(102, 126, 234, 0.5), rgba(54, 4, 103, 0.5));
+  
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgb(116, 138, 235), rgb(10, 0, 100))
+  }
+
+.custom-hr {
+    border-top: 2px solid black;
+    opacity: 100;
+}
+
+.custom-list-group {
+    border-radius: 10px!important;
+}
+
+#UVI{
+    padding: 3px 6px 3px 6px;
+    width: 20px;
+    border-radius: 5px;
+    color: white;
+}
+
+.vhigh{
+    background-color: red;
+}
+
+.high{
+    background-color: orange;
+}
+
+.mod{
+    background-color: yellow;
+}
+
+.low{
+    background-color: green;
+}
+
+#futureinfo img{
+    width: 40px;
+    height: auto;
+}
