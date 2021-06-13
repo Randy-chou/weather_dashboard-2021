@@ -103,7 +103,7 @@ function showDisplay(){
 //Updates the weather data section to show the current weather conditions
 function setCurrent(data,city){
     console.log(data);
-    var iconURL = "http://openweathermap.org/img/w/"+data.weather[0].icon+".png"
+    var iconURL = "https://openweathermap.org/img/w/"+data.weather[0].icon+".png"
     console.log(iconURL);
     $("#primary").children("div").children("img").attr('src', iconURL);
     $("#primary").children("div").children("h2").text(city + "(" + convertTime(data.dt) + ")");
@@ -129,7 +129,7 @@ function setFive(data){
     console.log(data);
     for(var i = 0; i < 5; i++){
         var dayInfo = data[i+1];
-        var iconURL = "http://openweathermap.org/img/w/"+dayInfo.weather[0].icon+".png"
+        var iconURL = "https://openweathermap.org/img/w/"+dayInfo.weather[0].icon+".png"
         var card = $("#futureinfo").children().eq(i);
         $(card).children().eq(0).text(convertTime(dayInfo.dt));
         $(card).children().eq(1).attr('src', iconURL)
