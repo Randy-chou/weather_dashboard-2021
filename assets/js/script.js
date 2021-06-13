@@ -1,3 +1,4 @@
+//Retrieve useful elements from DOM
 var APIKey = "0efa90e6b8a3b3bc21a824ab0b41b08b";
 var submitForm = $("#submitForm");
 var clearButton = $("#clear");
@@ -12,6 +13,7 @@ if(storedArray !== null){
     localArray = JSON.parse(storedArray);
 }
 
+//Upon submitting an input city, updates local storage and displays weather data
 function updateWebsite(event){
     event.preventDefault();
     var city = $("input").val();
@@ -22,6 +24,7 @@ function updateWebsite(event){
     getData(city);
 }
 
+//Helper function for displaying what is currently 
 function displayHistory(){
     newHistory.html("");
     $(localArray.reverse()).each(function(index){
@@ -32,16 +35,20 @@ function displayHistory(){
     });
 }
 
-//Weather data retrieval
+//Helper function for weather data retrieval 
 function getData(city){
     var queryURLGeo = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=" + APIKey;
+
+    //Translate inputed city to lat and long coordinates
     fetch(queryURLGeo).then(function(response){
+        //Check for any retrieval errors
         if(response.status !== 200){
             console.log("Error: " + response.status);
         }else{
             return response.json();
         }
     }).then(function(data){
+        //Check if any data was returned or if the inputed city does not exist
         if(typeof(data[0]) != 'undefined'){
             showDisplay();
             if(newValidCity){
@@ -60,17 +67,20 @@ function getData(city){
         }
         let lat = data[0].lat;
         let lon = data[0].lon;
+        //Using the lat and lon data, get the current and future weather for the city
         var queryURLW = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon +"&exclude=minutely,hourly,alerts&appid=" + APIKey + "&units=metric";
         $.ajax({
             url: queryURLW,
             method: 'GET'
         }).then(function(response){
+            //Helper functions to update webpage using data
             setCurrent(response.current,city);
             setFive(response.daily);
         });
     })
 }
 
+//When clicking an item in the search history, updates the weather data section
 function getHistory(event){
     var target = $(event.target);
     if(target.is("button")){
@@ -78,17 +88,19 @@ function getHistory(event){
     }
 }
 
+//Clear local storage of past search history
 function clearHistory(){
     localArray = [];
     localStorage.setItem("storedArray", JSON.stringify(localArray));
     displayHistory();
 }
 
-//Weather data display
+//Bring the weather data section of the website out of hiding
 function showDisplay(){
     $(".d-none").removeClass("d-none")
 }
 
+//Updates the weather data section to show the current weather conditions
 function setCurrent(data,city){
     console.log(data);
     var iconURL = "http://openweathermap.org/img/w/"+data.weather[0].icon+".png"
@@ -112,6 +124,7 @@ function setCurrent(data,city){
     }
 }
 
+//Updates the weather data section to show the future forcasts
 function setFive(data){
     console.log(data);
     for(var i = 0; i < 5; i++){
@@ -126,6 +139,7 @@ function setFive(data){
     }
 }
 
+//Converts unix time to the corresponding date.
 function convertTime(unixdata){
     console.log(unixdata);
     let unix_timestamp = unixdata;
@@ -136,6 +150,7 @@ function convertTime(unixdata){
     return month+"/"+day+"/"+year;
 }
 
+//Initial website set up
 displayHistory();
 submitForm.on("submit", updateWebsite)
 newHistory.on("click", getHistory)

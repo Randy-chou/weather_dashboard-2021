@@ -1,3 +1,4 @@
+/* Header gradient */
 .gradient-h-custom {
     /* fallback for old browsers */
     background: #667eea;
@@ -9,15 +10,18 @@
     background: linear-gradient(to right, rgb(116, 138, 235), rgb(10, 0, 100))
   }
 
+/* horizontal divider */
 .custom-hr {
     border-top: 2px solid black;
     opacity: 100;
 }
 
+/* rounding the corners of each list item in past search history */
 .custom-list-group {
     border-radius: 10px!important;
 }
 
+/* UV intensity element styling*/
 #UVI{
     padding: 3px 6px 3px 6px;
     width: 20px;
@@ -25,6 +29,7 @@
     color: white;
 }
 
+/* UV intensity colors */
 .vhigh{
     background-color: red;
 }
@@ -41,6 +46,7 @@
     background-color: green;
 }
 
+/* Icon sizing */
 #primary img{
     width: 50px;
     height: auto;
@@ -51,6 +57,7 @@
     height: auto;
 }
 
+/* Font and header custom styling */
 .bg-dark h2{
     font-size: 16px;
     font-weight: bold;
