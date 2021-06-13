@@ -1,5 +1,7 @@
 var APIKey = "0efa90e6b8a3b3bc21a824ab0b41b08b";
 var submitForm = $("#submitForm");
+var clearButton = $("#clear");
+var newHistory = $("#history");
 
 //Local storage
 var localArray = [];
@@ -21,13 +23,12 @@ function updateWebsite(event){
 }
 
 function displayHistory(){
-    var history = $("#history");
-    history.html("");
+    newHistory.html("");
     $(localArray.reverse()).each(function(index){
         newEl = $("<button>")
         newEl.addClass("list-group-item list-group-item-action list-group-item-dark custom-list-group my-2");
         newEl.html(localArray[index]);
-        history.append(newEl);
+        newHistory.append(newEl);
     });
 }
 
@@ -64,6 +65,19 @@ function getData(city){
             setFive(response.daily);
         });
     })
+}
+
+function getHistory(event){
+    var target = $(event.target);
+    if(target.is("button")){
+        getData(target.text());
+    }
+}
+
+function clearHistory(){
+    localArray = [];
+    localStorage.setItem("storedArray", JSON.stringify(localArray));
+    displayHistory();
 }
 
 //Weather data display
@@ -120,3 +134,5 @@ function convertTime(unixdata){
 
 displayHistory();
 submitForm.on("submit", updateWebsite)
+newHistory.on("click", getHistory)
+clearButton.on("click", clearHistory);
