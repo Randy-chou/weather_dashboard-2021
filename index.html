@@ -5,17 +5,17 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Weather Dash</title>
-        <!--Bootstrap-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
         <!--Reset-->
         <link rel="stylesheet" href="./assets/css/reset.css">
+        <!--Bootstrap-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
         <!--Stylesheet-->
         <link rel="stylesheet" href="./assets/css/style.css">
     </head>
 
     <body>
         <header class = "container-fluid text-center text-light gradient-h-custom mb-4">
-            <h1 class = "p-4">Weather Dashboard</h1>
+            <h1 class = "p-4"><strong>Weather Dashboard</strong></h1>
         </header>
         <main class = "container-fluid">
             <div class = "row">
@@ -35,7 +35,7 @@
                     <div class = "row">
                         <section class = "col-12 card border-dark ps-3" id="primary">
                             <div class="flex-row">
-                                <h2 class="mb-3 d-inline">CityName(mm/dd/yyyy)icon</h2>
+                                <h2 class="mb-3 d-inline" id="cityname">CityName(mm/dd/yyyy)icon</h2>
                                 <img>
                             </div>
                             <p>Temp: <span id="temp">placeholder</span>°C</p>
@@ -43,8 +43,8 @@
                             <p>Humidity: <span id="humid">placeholder</span>%</p>
                             <p class="mb-3">UV Index: <span id="UVI">placeholder</span></p>
                         </section>
-                        <h2 class="my-2">5-Day Forecast:</h2>
-                        <section class = "col-12 p-0 card-group" id="futureinfo">
+                        <h2 class="my-2 h5"><strong>5-Day Forecast:</strong></h2>
+                        <section class = "col-12 p-0 card-group mb-3" id="futureinfo">
                             <section class = "card bg-dark bg-gradient text-white p-2 me-2">
                                 <h2>mm/dd/yyyy</h2>
                                 <img>

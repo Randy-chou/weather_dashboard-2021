@@ -41,7 +41,25 @@
     background-color: green;
 }
 
+#primary img{
+    width: 50px;
+    height: auto;
+}
+
 #futureinfo img{
     width: 40px;
     height: auto;
+}
+
+.bg-dark h2{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#cityname{
+    font-weight: bold;
+}
+
+#city-input::placeholder {
+    color: red;
 }

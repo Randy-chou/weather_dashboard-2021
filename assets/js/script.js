@@ -46,12 +46,16 @@ function getData(city){
             showDisplay();
             if(newValidCity){
                 newValidCity = false;
+                $("input").val("");
+                $("input").attr("placeholder", "");
                 localArray.push(city);
                 localStorage.setItem("storedArray", JSON.stringify(localArray)); displayHistory();
             }
         }else{
             console.log("not a valid city")
             isValidCity = false;
+            $("input").val("");
+            $("input").attr("placeholder", "not a valid city, try again?");
             return;
         }
         let lat = data[0].lat;
